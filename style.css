@@ -1,0 +1,33 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', Arial;
+    box-sizing: border-box;  
+}
+body
+{
+    background-image: url("/shayne-inc-photography-i7a_qUFADzg-unsplash.jpg");
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+container
+{
+    height: auto;
+    width: auto;
+}
+
+startButton
+{
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 23px;
+font-weight: 700;
+text-align: center;
+}
+startButton:hover
+{
+    background: rgb(209, 77, 77);
+    
+}
