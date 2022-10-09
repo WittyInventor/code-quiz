@@ -6,29 +6,29 @@ var questionBank = [
         answer: 'monica organizers'
     },
     {
-        question: 'What is the easiest definition of var ',
+        question: 'What is the easiest definition of var? ',
         choice: ['declaring code!', 'making events', 'calculating score', 'styling'],
         answer: 'declaring code!'
     },
     {
-        question: 'this is the third question',
-        choice: ['', '', '', ''],
-        answer: ''
+        question: 'How do you reference an ID in CSS?',
+        choice: ['. period', '# hashtag', '; semicolon ', ': colon'],
+        answer: '# hashtag'
     },
     {
-        question: '',
-        choice: ['', '', '', ''],
-        answer: ''
+        question: 'What does addanEventListener do?',
+        choice: ['ends the event', 'pauses the event', 'removes the event', 'listens for the code and then turns into an action!'],
+        answer: 'listens for the code and then turns into an action!'
     },
     {
-        question: '',
-        choice: ['', '', '', ''],
-        answer: ''
+        question: 'What is the difference between an array and a list?',
+        choice: ['theres no difference', 'an array makes events, lists are multiple types', 'list contains multiple data types, while an array collects several items of the same type', 'arrays get elements, lists collect lists of same type'],
+        answer: 'list contains multiple data types, while an array collects several items of the same type'
     },
     {
-        question: '',
-        choice: ['', '', '', ''],
-        answer: ''
+        question: 'whats the difference between let and const?',
+        choice: ['const makes events, a let listens', 'a const lets values change whereas a let does not', 'a const is unpredictable but a let is safe with variables', 'a const declares variables that does not change whereas a let allows the value of the variable to change'],
+        answer: 'a const declares variables that does not change whereas a let allows the value of the variable to change'
     },
 ]
 
@@ -91,9 +91,11 @@ function calScore(e) {
 
         }
         else {
+            console.log('else hit!')
             points.innerHTML = score + '/' +
                 questionBank.length;
             quizContainer.style.display = 'block'
+            window.location.href = 'end.html'
         }
 
         // click events to next button
