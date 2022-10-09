@@ -2,32 +2,32 @@
 var questionBank = [
     {
         question: 'What is the easiest definition of divs?',
-        choice: ['monica organizers', 'colors', 'size', 'margins'],
+        choice: ['A. monica organizers', 'B. colors', 'C. size', 'D. margins'],
         answer: 'monica organizers'
     },
     {
         question: 'What is the easiest definition of var? ',
-        choice: ['declaring code!', 'making events', 'calculating score', 'styling'],
+        choice: ['A. declaring code!', 'B. making events', 'C. calculating score', 'D. styling'],
         answer: 'declaring code!'
     },
     {
         question: 'How do you reference an ID in CSS?',
-        choice: ['. period', '# hashtag', '; semicolon ', ': colon'],
+        choice: ['A. . period', 'B. # hashtag', 'C. ; semicolon ', 'D. : colon'],
         answer: '# hashtag'
     },
     {
         question: 'What does addanEventListener do?',
-        choice: ['ends the event', 'pauses the event', 'removes the event', 'listens for the code and then turns into an action!'],
+        choice: ['A. ends the event', 'B. pauses the event', 'C. removes the event', 'D. listens for the code and then turns into an action!'],
         answer: 'listens for the code and then turns into an action!'
     },
     {
         question: 'What is the difference between an array and a list?',
-        choice: ['theres no difference', 'an array makes events, lists are multiple types', 'list contains multiple data types, while an array collects several items of the same type', 'arrays get elements, lists collect lists of same type'],
+        choice: ['A. theres no difference', 'B. an array makes events, lists are multiple types', 'C. list contains multiple data types, while an array collects several items of the same type', 'D. arrays get elements, lists collect lists of same type'],
         answer: 'list contains multiple data types, while an array collects several items of the same type'
     },
     {
         question: 'whats the difference between let and const?',
-        choice: ['const makes events, a let listens', 'a const lets values change whereas a let does not', 'a const is unpredictable but a let is safe with variables', 'a const declares variables that does not change whereas a let allows the value of the variable to change'],
+        choice: ['A. const makes events', 'B. a let listens whereas a const lets values change whereas a let does not', 'C. a const is unpredictable but a let is safe with variables', 'D. a const declares variables that does not change whereas a let allows the value of the variable to change'],
         answer: 'a const declares variables that does not change whereas a let allows the value of the variable to change'
     },
 ]
@@ -95,7 +95,6 @@ function calScore(e) {
             points.innerHTML = score + '/' +
                 questionBank.length;
             quizContainer.style.display = 'block'
-            window.location.href = 'end.html'
         }
 
         // click events to next button
@@ -136,8 +135,6 @@ function calScore(e) {
 
 
 
-
-
 // GIVEN I am taking a code quiz 
 
 // make a instruction box
@@ -157,6 +154,7 @@ startButton.addEventListener('click', function () {
 
     displayQuestion(0)
 });
+
 
 // add an if statement, timer
 // WHEN I answer a question

@@ -47,7 +47,6 @@ border-radius: 30px;
     border-radius: 30px;
 }
 
-
 #container
 {
 justify-items: center;
@@ -56,7 +55,7 @@ border-radius: 30px 0;
 top: 0;
 left:0;
 display: flex;
-height: 100%;
+height: 10vh;
 width: 100%;
 background:rgb(209, 77, 77);
 position: relative
@@ -116,17 +115,6 @@ text-align: center;
 }
 
 
- #score-btn
- {
-width: 100px;
-height: 80px;
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-font-size: 20px;
-font-weight: 100;
-text-align: center;
-justify-content: center;
-border-radius: 30px;
-}
 
 #score-title
 {
