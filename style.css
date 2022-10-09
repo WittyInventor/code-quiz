@@ -8,17 +8,22 @@
 }
 body
 {
-    background-image: url("/shayne-inc-photography-i7a_qUFADzg-unsplash.jpg");
+    background-image: url("la-rel-easter-KuCGlBXjH_o-unsplash.jpg");
     background-size: cover;
     display: grid;
     place-items: center;
     height: 100vh;
     justify-content: center;
 }
-container
-{
-    height: auto;
-    width: auto;
+
+.glassBox{
+    background-color: rgba(255, 228, 196, 0.46);
+    width: 70vw;
+    height:60vw;
+
+}
+span{
+    background-color: green !important;
 }
 
 #startButton
@@ -42,14 +47,6 @@ border-radius: 30px;
     border-radius: 30px;
 }
 
-#potteryQuiz
-{
-    display: block;
-    height: 480px;
-    position: relative;
-    justify-content: center;
-    text-align: center;
-}
 
 #container
 {
@@ -64,12 +61,67 @@ width: 100%;
 background:rgb(209, 77, 77);
 position: relative
 }
-#quizquestionHeader 
+#quizquestionHeader #timer #time
 {
     background: rgb(209, 77, 77);
-    
+    height:44px;
+    width: 50px;
+    border-radius: 15px 7px;
+    border: 1px solid ;
+    margin: 2px 0 0 27px;
+}
+
+/* quiz questions */
+#quiz #question 
+{
+position:absolute;
+top: 90px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+#quiz #question h5
+{
+    font-size: 27px;
+}
+ #quiz #question h4:first-child
+ {
+    margin: 0 10px 0 5px;
+ }
+/* quiz options */
+ #quiz #optionList
+{
+height: 400px;
+width: 100%;
+position: absolute;
+top: 160px;
+ }
+#quiz #optionList h4 
+{
+    height: 50px;
+    width: 535px;
+    background:rgb(209, 77, 77);
+    line-height: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    padding: 0 20px;
+    font-size: 20px;
+    color: blanchedalmond;
+    overflow: hidden;
+}
 
 
+ #score-btn
+ {
+width: 100px;
+height: 80px;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 20px;
+font-weight: 100;
+text-align: center;
+justify-content: center;
+border-radius: 30px;
 }
 
 
