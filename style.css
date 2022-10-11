@@ -14,16 +14,21 @@ body
     place-items: center;
     height: 100vh;
     justify-content: center;
+    text-align: center;
+    font-size: 16px;
 }
 
 .glassBox{
     background-color: rgba(255, 228, 196, 0.46);
     width: 70vw;
     height:60vw;
-
 }
+.questions{
+    font-size: 20px;
+}
+
 span{
-    background-color: green !important;
+    justify-content: center;
 }
 
 #startButton
@@ -99,6 +104,7 @@ position: absolute;
 top: 160px;
 text-align: center;
  }
+
 #quiz #optionList h4 
 {
     height: 50px;
@@ -126,4 +132,29 @@ text-align: center;
 {
     text-align: center;  
     font-size: 30px;
+    padding-bottom: 30px ;
+}
+
+li.choices {
+text-align: center;
+padding-bottom: 20px;
+font-size: 30px;
+}
+
+.hide
+{
+  display: none; 
+
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+.gameOver
+{
+    font-size: larger;
 }

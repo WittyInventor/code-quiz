@@ -3,32 +3,32 @@ var questionBank = [
     {
         question: 'What is the easiest definition of divs?',
         choice: ['A. monica organizers', 'B. colors', 'C. size', 'D. margins'],
-        answer: 'monica organizers'
+        answer: 'A. monica organizers'
     },
     {
         question: 'What is the easiest definition of var? ',
         choice: ['A. declaring code!', 'B. making events', 'C. calculating score', 'D. styling'],
-        answer: 'declaring code!'
+        answer: 'A. declaring code!'
     },
     {
         question: 'How do you reference an ID in CSS?',
         choice: ['A. . period', 'B. # hashtag', 'C. ; semicolon ', 'D. : colon'],
-        answer: '# hashtag'
+        answer: 'B. # hashtag'
     },
     {
         question: 'What does addanEventListener do?',
         choice: ['A. ends the event', 'B. pauses the event', 'C. removes the event', 'D. listens for the code and then turns into an action!'],
-        answer: 'listens for the code and then turns into an action!'
+        answer: 'D. listens for the code and then turns into an action!'
     },
     {
         question: 'What is the difference between an array and a list?',
         choice: ['A. theres no difference', 'B. an array makes events, lists are multiple types', 'C. list contains multiple data types, while an array collects several items of the same type', 'D. arrays get elements, lists collect lists of same type'],
-        answer: 'list contains multiple data types, while an array collects several items of the same type'
+        answer: 'C. list contains multiple data types, while an array collects several items of the same type'
     },
     {
         question: 'whats the difference between let and const?',
         choice: ['A. const makes events', 'B. a let listens whereas a const lets values change whereas a let does not', 'C. a const is unpredictable but a let is safe with variables', 'D. a const declares variables that does not change whereas a let allows the value of the variable to change'],
-        answer: 'a const declares variables that does not change whereas a let allows the value of the variable to change'
+        answer: 'D. a const declares variables that does not change whereas a let allows the value of the variable to change'
     },
 ]
 
@@ -53,7 +53,7 @@ var span = document.querySelectorAll('span');
 var stat = document.getElementById('question1');
 var i = 0;
 var score = 0;
-var timer = 30;
+var timer = 2;
 var timeLeft = document.getElementById('time')
 // function to display questions
 function displayQuestion() {
@@ -70,6 +70,7 @@ function displayQuestion() {
 // function to calculate score
 
 function calScore(e) {
+    console.log(e.innerHTML)
     if (e.innerHTML === questionBank[i].answer) {
         console.log(e.innerHTML)
         score = score + 1;
@@ -81,7 +82,9 @@ function calScore(e) {
         console.log(timer)
     }
 
-    setTimeout(nextQuestion, 10);
+    nextQuestion()
+
+}
 
     // function to display next question
     function nextQuestion() {
@@ -95,10 +98,10 @@ function calScore(e) {
             points.innerHTML = score + '/' +
                 questionBank.length;
             quizContainer.style.display = 'block'
+            gameOver()
         }
 
-        // click events to next button
-        next.addEventListener('click', nextQuestion);
+        
 
         // Back to Quiz button event handler
         function returntoQuiz() {
@@ -128,10 +131,14 @@ function calScore(e) {
 
     }
 
+function gameOver() {
+console.log("gameOver")
 
-    displayQuestion();
 
 }
+    // displayQuestion();
+
+
 
 
 
@@ -143,13 +150,14 @@ function calScore(e) {
 // THEN a timer starts and I am presented with a question
 var startButton = document.querySelector("#startButton");
 startButton.addEventListener('click', function () {
-    const frank = setInterval(function () {
+    var showTime = setInterval(function () {
         timeLeft.innerHTML = timer
         console.log("runnings")
+        if (timer <= 0){
+            clearInterval(showTime)
+            gameOver()
+        } 
         timer = timer - 1
-        if (timer === 0){
-            clearInterval(frank)
-        }
     }, 1000);
 
     displayQuestion(0)

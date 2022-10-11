@@ -39,7 +39,7 @@
         <div id="quiz-container">
             <!-- question container -->
             <div class="questions">
-                <h2 id="questionBank"></h2>
+                <h2 id="question"></h2>
                 <ul style="list-style: none;">
                     <li class="choices"><span id="choice0"
                         onclick="calScore(this)"></span></li>
@@ -62,10 +62,17 @@
             <img src="" alt="">
             <h2 id="score-title"> Your Score</h2>
             <h2 id="score"></h2>"
-            
-            
+             
         </div>
 
+        <div class = "gameOver hide">
+            
+            <p> Game Over! </p>
+            <form id="initials">
+                <input type="text">
+                <button type="submit">initials</button>
+            </form>
+        </div>
 
         <!-- quiz questions -->
         <div>
