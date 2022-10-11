@@ -142,6 +142,9 @@ gameoverDiv.setAttribute("class", "gameOver")
 gameOverDiv.addEventListener(savehighScore)
 
 function savehighScore() {
+    console.log ("savehighScore")
+    var initials = document.getElementById(initials).initials;
+
         let initials = "initials";
 }
     // displayQuestion();
