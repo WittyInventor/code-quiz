@@ -32,6 +32,9 @@ var questionBank = [
     },
 ]
 
+var savehighScore = function() {…}
+
+var gameoverDiv = document.querySelector(".gameOver")
 
 var question = document.getElementById
     ('question');
@@ -133,8 +136,13 @@ function calScore(e) {
 
 function gameOver() {
 console.log("gameOver")
+gameoverDiv.setAttribute("class", "gameOver")
+}
 
+gameOverDiv.addEventListener(savehighScore)
 
+function savehighScore() {
+        let initials = "initials";
 }
     // displayQuestion();
 
