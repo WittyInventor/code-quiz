@@ -32,9 +32,9 @@ var questionBank = [
     },
 ]
 
-var savehighScore = function() {…}
 
 var gameoverDiv = document.querySelector(".gameOver")
+var submitButton = document.querySelector("#submitButton")
 
 var question = document.getElementById
     ('question');
@@ -56,7 +56,7 @@ var span = document.querySelectorAll('span');
 var stat = document.getElementById('question1');
 var i = 0;
 var score = 0;
-var timer = 2;
+var timer = 30;
 var timeLeft = document.getElementById('time')
 // function to display questions
 function displayQuestion() {
@@ -139,17 +139,17 @@ console.log("gameOver")
 gameoverDiv.setAttribute("class", "gameOver")
 }
 
-gameOverDiv.addEventListener(savehighScore)
+// gameOverDiv.addEventListener(savehighScore)
 
 function savehighScore() {
-    console.log ("savehighScore")
-    var initials = document.getElementById(initials).initials;
+    var initials = document.getElementById("initials");
+    console.log (initials, "initials element");
+    console.log (initials.value, "initials value")
 
-        let initials = "initials";
+    
+
+localStorage.setItem(initials.value, score)
 }
-    // displayQuestion();
-
-
 
 
 
@@ -174,6 +174,9 @@ startButton.addEventListener('click', function () {
     displayQuestion(0)
 });
 
+submitButton.addEventListener("click", function(){
+    savehighScore()
+})
 
 // add an if statement, timer
 // WHEN I answer a question
