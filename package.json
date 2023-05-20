@@ -1,0 +1,12 @@
+{
+    "name": "code-quiz",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://wittyinventor.github.io/Code-Quiz",
+    "dependencies": {
+        "gh-pages": "^5.0.0"
+    },
+    "scripts": {
+        "deploy": "gh-pages -d build"
+    }
+}

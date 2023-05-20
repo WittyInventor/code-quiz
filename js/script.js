@@ -32,6 +32,8 @@ var questionBank = [
     },
 ]
 
+//TODO: add a button that can be clicked to view the saved high scores ****
+
 
 var gameoverDiv = document.querySelector(".gameOver")
 var submitButton = document.querySelector("#submitButton")
@@ -57,10 +59,13 @@ var stat = document.getElementById('question1');
 var i = 0;
 var score = 0;
 var timer = 30;
+var showTime;
+var isplaying = false;
+var isgameover = false;
 var timeLeft = document.getElementById('time')
 // function to display questions
 function displayQuestion() {
-    
+
 
     // i+=2
     question.innerHTML = 'Q.' + (i + 1) + ' ' + questionBank[i].question;
@@ -68,7 +73,7 @@ function displayQuestion() {
     choice1.innerHTML = questionBank[i].choice[1];
     choice2.innerHTML = questionBank[i].choice[2];
     choice3.innerHTML = questionBank[i].choice[3];
-    stat.innerHTML = "Question" + ' ' + (i + 1) + 'of' + ' ' + questionBank.length;
+    stat.innerHTML = "Question " + (i + 1) + ' of ' + questionBank.length;
 }
 // function to calculate score
 
@@ -79,79 +84,65 @@ function calScore(e) {
         score = score + 1;
 
     }
-    else {
-        console.log(timer)
-        timer = timer - 10
-        console.log(timer)
-    }
-
+    // before there was an else statement that did not stop the timer, so I fixed it by deleting the else statement to improve the quiz experience.
     nextQuestion()
 
 }
 
-    // function to display next question
-    function nextQuestion() {
-        if (i < questionBank.length - 1) {
-            i = i + 1;
-            displayQuestion();
-
-        }
-        else {
-            console.log('else hit!')
-            points.innerHTML = score + '/' +
-                questionBank.length;
-            quizContainer.style.display = 'block'
-            gameOver()
-        }
-
-        
-
-        // Back to Quiz button event handler
-        function returntoQuiz() {
-            location.reload();
-        }
-        // function to check Answers
-        function checkAnswer() {
-            var answerBank = document.getElementById
-                ('answerBank');
-            var Answers = document.getElementById('answers');
-            answerBank.style.display = 'block';
-            scoreBank.style.display = 'block';
-            for (var a = 0; a < questionBank.length; a++) {
-                var list = document.createElement('li')
-                    ;
-                list.innerHTML = questionBank[a].answer;
-                Answers.appendChild(list);
-
-            }
-
-        }
-
-
-
+// function to display next question
+function nextQuestion() {
+    if (i < questionBank.length - 1) {
+        i = i + 1;
         displayQuestion();
 
-
+    }
+    else {
+        console.log('else hit!')
+        
+        gameOver()
     }
 
+    displayQuestion();
+}
+// added isplaying = false to fix the reset timer gliche.
+
 function gameOver() {
-console.log("gameOver")
-gameoverDiv.setAttribute("class", "gameOver")
+    console.log("gameOver")
+    clearInterval(showTime)
+    gameoverDiv.setAttribute("class", "gameOver");
+
+    points.innerHTML = score + '/' +  questionBank.length;
+    quizContainer.style.display = 'block';
+    isplaying = false;
+    isgameover=true;
 }
 
-// gameOverDiv.addEventListener(savehighScore)
+// on line 97 there was the code showing on lines 109-110 and that was incorrect which messed up the code, but now its in the correct place to show the score to the user
+
+
 
 function savehighScore() {
     var initials = document.getElementById("initials");
-    console.log (initials, "initials element");
-    console.log (initials.value, "initials value")
+    console.log(initials, "initials element");
+    console.log(initials.value, "initials value")
 
-    
 
-localStorage.setItem(initials.value, score)
+
+    localStorage.setItem(initials.value, score)
 }
 
 
+function resetGame() {
+    timeLeft.innerHTML = "00";
+    timer = 30;
+    i = 0;
+    score = 0;
+    isgameover = false;
+    gameoverDiv.setAttribute("class", "gameOver hide");
+    
+    points.innerHTML ="";
+
+}
 
 // GIVEN I am taking a code quiz 
 
@@ -159,22 +150,34 @@ localStorage.setItem(initials.value, score)
 
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
+// fixed issue: was the timer was not stopping once the questions were all done before because the code was saying to showTime INSIDE the timer, now its FIXED with adding  clearInterval(showTime) on line 106
+// fixed issue: before the start button was making the timer go too fast so I added isplaying variable to confirm when its true it will play.
+
+//  NOTE: isplaying will be false and isgameover will run false first until the game is actually over. if isgameover is true than we will reset all the variables. 
+
 var startButton = document.querySelector("#startButton");
 startButton.addEventListener('click', function () {
-    var showTime = setInterval(function () {
-        timeLeft.innerHTML = timer
-        console.log("runnings")
-        if (timer <= 0){
-            clearInterval(showTime)
-            gameOver()
-        } 
-        timer = timer - 1
-    }, 1000);
+    if(!isplaying && isgameover){
+        resetGame();
+    }
 
-    displayQuestion(0)
+    if (!isplaying && !isgameover) {
+        isplaying = true
+        startButton.textContent = "Restart Quiz"; 
+        showTime = setInterval(function () {
+            timeLeft.innerHTML = timer
+            console.log("runnings")
+            if (timer <= 0) {
+                gameOver()
+            }
+            timer = timer - 1
+        }, 1000);
+        displayQuestion(0)
+    }
+    
 });
 
-submitButton.addEventListener("click", function(){
+submitButton.addEventListener("click", function () {
     savehighScore()
 })
 

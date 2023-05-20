@@ -21,7 +21,8 @@ body
 .glassBox{
     background-color: rgba(255, 228, 196, 0.46);
     width: 70vw;
-    height:60vw;
+    height:700px;
+    border-radius: 30px;
 }
 .questions{
     font-size: 20px;
@@ -42,25 +43,24 @@ font-weight: 700;
 text-align: center;
 justify-content: center;
 border-radius: 30px;
-
+border: none;
+margin-bottom: 50px;
 }
+
 #startButton:hover
 {
     background: rgb(209, 77, 77);
-    width: 300px;
-    height: 200px;
-    border-radius: 30px;
 }
 
 #container
 {
 justify-items: center;
 align-items: center;
-border-radius: 30px 0;
+border-radius: 30px;
 top: 0;
 left:0;
 display: flex;
-height: 10vh;
+height: 20vh;
 width: 100%;
 background:rgb(209, 77, 77);
 position: relative
@@ -84,6 +84,10 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 text-align: center;
+}
+
+#question1 {
+    font-size: 30px;
 }
 
 #quiz #question h5
@@ -120,7 +124,9 @@ text-align: center;
     text-align: center;
 }
 
-
+#scorepanel {
+    margin-bottom: 40px;
+}
 
 #score-title
 {
@@ -128,12 +134,24 @@ text-align: center;
     font-size: 30px;
 }
 
-#timer
+
+#timer-scoredisplay {
+    position: relative;
+
+}
+
+
+#time-leftcontainer
 {
-    text-align: center;  
+    text-align: right;  
     font-size: 30px;
     padding-bottom: 30px ;
-}
+    padding-right: 30px;
+    padding-top: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}   
 
 li.choices {
 text-align: center;
@@ -156,5 +174,31 @@ input[type=text] {
 
 .gameOver
 {
-    font-size: larger;
+    font-size: 30px;
+}
+
+.gameOver p
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 60px;
+    font-weight: bolder;
+    background-color: brown;
+    color: yellow;
+    padding: 20px;
+}
+
+.gameOver button
+{
+    font-size: 30px;
+    background-color: green;
+    color: greenyellow;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#initials {
+    font-size: 25px;
+    padding: 7px;
+    border-radius: 10px;
 }
